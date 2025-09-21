@@ -13,19 +13,21 @@ reminder_message = ""
 match priority.lower():
     case "high":
         reminder_message = f"'{task}' is a high priority task"
+        # Check if the high priority task is time-bound
+        if time_bound.lower() == "yes":
+            # Append the time-sensitive phrase to the existing message
+            reminder_message += " that requires immediate attention today!"
+        print(f"Reminder: {reminder_message}")
     case "medium":
-        reminder_message = f"'{task}' is a medium priority task"
+        reminder_message = f"'{task}' is a medium priority task."
+        # Check if the medium priority task is time-bound
+        if time_bound.lower() == "yes":
+            # Append the time-sensitive phrase to the existing message
+            reminder_message += " that requires immediate attention today!"
+        print(f"Reminder: {reminder_message}")
     case "low":
         reminder_message = f"Note: '{task}' is a low priority task. Consider completing it when you have free time."
+        print(reminder_message)
     case _:
-        reminder_message = f"'{task}' has an unknown priority level."
-
-# 3. Modify the message for time-sensitive tasks
-# An if statement checks if the task is time-bound and modifies the message
-if time_bound.lower() == "yes":
-    # Append the time-sensitive phrase to the existing message
-    reminder_message += " that requires immediate attention today!"
-
-# 4. Provide a Customized Reminder
-# Print the final reminder message
-print("Reminder: " + reminder_message)
+        # For any other input, provide a generic reminder
+        print(f"Reminder: '{task}' has an unknown priority level.")
