@@ -28,4 +28,4 @@ if time_bound.lower() == "yes":
 
 # 4. Provide a Customized Reminder
 # Print the final reminder message
-print("Reminder:", reminder_message)
+print(f"Reminder: {reminder_message}")
